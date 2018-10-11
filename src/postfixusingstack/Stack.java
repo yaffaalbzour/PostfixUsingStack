@@ -9,28 +9,28 @@ package postfixusingstack;
  *
  * @author yaffa
  */
-class Node{
-        int data;
+class Node<E>{
+        E data;
         Node next;
-        public Node(int data){
+        public Node(E data){
             this.data = data;
         }
 }
-public class Stack {
+public class Stack<E> {
     private Node top;
     
-    public void push(int num){
+    public void push(E num){
         Node node = new Node(num);
-        node.next = top;
-        top = node;
+        node.next = this.top;
+        this.top = node;
     }
-    public int pop(){
-        int data = top.data;
-        top=top.next;
+    public E pop(){
+        E data = (E) top.data;
+        top = top.next;
         return data;
     }
-    public int peek(){
-        return top.data;
+    public E peek(){
+        return (E) this.top.data;
     }
     public boolean isEmpty(){
         return top == null;
